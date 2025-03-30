@@ -101,12 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Countdown Timer
     const countdownContainer = document.getElementById('greetingPreview');
-    const eidDate = new Date('2025-03-31T05:30:00'); // Set to Fajr time on Eid
+    const eidDate = new Date('2025-03-31T07:00:00'); // Set to Fajr time on Eid
   
     function updateCountdown() {
       const now = new Date();
       const difference = eidDate - now;
-  
+      
       if (difference <= 0) {
         // Countdown has ended
         if (countdownContainer) {
