@@ -1,0 +1,403 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    min-height: 100vh;
+    color: #fff;
+    overflow-x: hidden;
+    cursor: default;
+  }
+  
+  a, button {
+    cursor: pointer;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  .moon {
+    width: 100px;
+    height: 100px;
+    background: #ffd700;
+    border-radius: 50%;
+    margin: 2rem auto;
+    box-shadow: 0 0 50px #ffd700;
+    animation: glow 3s infinite alternate;
+  }
+  
+  .greeting {
+    margin: 4rem 0;
+  }
+  
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-family: 'Noto Nastaliq Urdu', serif;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .arabic-text {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    color: #ffd700;
+    opacity: 0.9;
+  }
+  
+  .typed-text {
+    font-size: 1.5rem;
+    min-height: 2em;
+    margin: 1rem 0;
+  }
+  
+  .wishes {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin: 2rem 0;
+  }
+  
+  .content-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+  }
+  
+  .section {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+  }
+  
+  .section:hover {
+    transform: translateY(-5px);
+  }
+  
+  .section h2 {
+    color: #ffd700;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .section p {
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+  
+  .quotes-section {
+    grid-column: 1 / -1;
+    background: rgba(255, 215, 0, 0.05);
+  }
+  
+  .quote-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .quote {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-style: italic;
+    line-height: 1.6;
+    transition: transform 0.3s ease;
+  }
+  
+  .quote:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 215, 0, 0.15);
+  }
+  
+  .greeting-cards-section {
+    grid-column: 1 / -1;
+  }
+  
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .download-btn {
+    background: #ffd700;
+    color: #16213e;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  
+  .download-btn:hover {
+    background: #ffed4a;
+    transform: scale(1.02);
+  }
+  
+  .mosque {
+    width: 100%;
+    height: 200px;
+    background: url('https://raw.githubusercontent.com/replit-community-templates/resources/main/images/mosque-silhouette.png') no-repeat center bottom;
+    background-size: contain;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    opacity: 0.2;
+  }
+  
+  .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: 
+      radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 50px 160px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    animation: twinkle 4s infinite;
+  }
+  
+  
+  
+  @keyframes twinkle {
+    50% { opacity: 0.5; }
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px #ffd700;
+    }
+    to {
+      box-shadow: 0 0 50px #ffd700;
+    }
+  }
+  
+  
+  
+  .additional-content {
+    margin: 3rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+  
+  .additional-content h2 {
+    color: #ffd700;
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.8rem;
+  }
+  
+  .additional-content p {
+    margin: 1rem 0;
+    line-height: 1.6;
+  }
+  
+  .prayer-times {
+    grid-column: 1 / -1;
+    margin: 2rem 0;
+  }
+  
+  .prayer-table {
+    width: 100%;
+    max-width: 500px;
+    margin: 1rem auto;
+    border-collapse: collapse;
+  }
+  
+  .prayer-table th,
+  .prayer-table td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+  }
+  
+  .prayer-table th {
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+  }
+  
+  .prayer-table tr:hover {
+    background: rgba(255, 215, 0, 0.05);
+  }
+  
+  .sparkle {
+    position: absolute;
+    pointer-events: none;
+    background: #ffd700;
+    border-radius: 50%;
+    animation: sparkle 1.5s linear forwards;
+  }
+  
+  @keyframes sparkle {
+    0% {
+      transform: scale(0) rotate(0deg) translateY(0);
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1) rotate(180deg) translateY(-100px);
+      opacity: 0;
+    }
+  }
+  
+  .sound-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.2);
+    border: 2px solid #ffd700;
+    color: #ffd700;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+  
+  .sound-toggle:hover {
+    background: rgba(255, 215, 0, 0.3);
+    transform: scale(1.1);
+  }
+  
+  .sound-icon {
+    font-size: 1.5rem;
+  }
+  
+  .credit {
+    margin: 2rem 0;
+    font-style: italic;
+    color: #ffd700;
+    opacity: 0.8;
+    font-size: 1.1rem;
+  }
+  
+  .interactive-section {
+    margin: 4rem auto;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+  }
+  
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .countdown-item {
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: pulse 1s infinite;
+  }
+  
+  .countdown-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+  }
+  
+  .countdown-label {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #fff;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .create-btn {
+    background: #ffd700;
+    color: #16213e;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.2s;
+  }
+  
+  .create-btn:hover {
+    transform: scale(1.02);
+  }
+  
+  .greeting-preview {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 8px;
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    .moon {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .lantern {
+      width: 40px;
+      height: 60px;
+    }
+  }
+  
