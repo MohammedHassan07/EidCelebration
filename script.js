@@ -2,24 +2,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Audio Controls
     const ambientSound = document.getElementById('ambientSound');
-    const soundToggle = document.getElementById('soundToggle');
-    let isPlaying = true;
+    // const soundToggle = document.getElementById('soundToggle');
+    // let isPlaying = true;
   
     // Auto-play sound
     ambientSound.play().catch(() => {
       isPlaying = false;
     });
   
-    soundToggle.addEventListener('click', () => {
-      if (isPlaying) {
-        ambientSound.pause();
-        soundToggle.querySelector('.sound-icon').textContent = '🔈';
-      } else {
-        ambientSound.play();
-        soundToggle.querySelector('.sound-icon').textContent = '🔊';
-      }
-      isPlaying = !isPlaying;
-    });
+    // soundToggle.addEventListener('click', () => {
+    //   if (isPlaying) {
+    //     ambientSound.pause();
+    //     soundToggle.querySelector('.sound-icon').textContent = '🔈';
+    //   } else {
+    //     ambientSound.play();
+    //     soundToggle.querySelector('.sound-icon').textContent = '🔊';
+    //   }
+    //   isPlaying = !isPlaying;
+    // });
   
     // Enhanced particle effects
     function createParticle() {
