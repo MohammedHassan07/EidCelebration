@@ -2,84 +2,109 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eid Mubarak</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Poppins:wght@400;600&display=swap"
-        rel="stylesheet">
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eid Mubarak</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Nastaliq+Urdu:wght@400;600&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 </head>
 
 <body>
-    <div class="stars"></div>
-    <audio id="ambientSound" loop autoplay>
-        <source
-            src="./birds-chirping.mp3"
-            type="audio/mpeg">
-    </audio>
-    
-    <div class="container">
+  <div class="background-overlay"></div>
+  <div class="stars"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
 
-        <div class="moon"></div>
+  <audio id="ambientSound" loop autoplay>
+    <source src="./birds-chirping.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="soundToggle" class="sound-toggle" aria-label="Toggle sound">
+    <span class="sound-icon">🔊</span>
+  </button>
+
+  <main class="container">
+    <section class="hero-card">
+      <div class="hero-top">
+        <div class="badge">✨ Blessed Celebration ✨</div>
         <div class="credit">Greetings from Mohammed Hassan</div>
+      </div>
 
-        <div class="interactive-section">
-            <h2>Countdown to Eid</h2>
-            <div id="greetingPreview" class="greeting-preview"></div>
-        </div>
-        
-        <div class="greeting">
-            <h1>Eid Mubarak</h1>
-            <div class="arabic-text">تَقَبَّلَ اللَّهُ مِنَّا وَمِنكُم</div>
-            <div class="typed-text"></div>
-            <p class="wishes">May this Eid bring joy, love, and prosperity to you and your family</p>
-            <!-- <div class="additional-content">
-                <h2>Celebrate with Love</h2>
-                <p>On this blessed occasion of Eid, let us remember the less fortunate and share our happiness with
-                    others.</p>
-                <h2>Time for Family</h2>
-                <p>Gather with your loved ones, share meals, and create beautiful memories together.</p>
-            </div> -->
-        </div>
+      <div class="crescent-wrapper">
+        <div class="crescent-glow"></div>
+        <div class="crescent-moon"></div>
+      </div>
 
-        <div class="section prayer-times">
-            <h2>Eid Prayer Timings - Malegaon Maharashtra</h2>
-            <table class="prayer-table">
-                <tr>
-                    <th>Prayer</th>
-                    <th>Time</th>
-                </tr>
-                <tr>
-                    <td>Fajr</td>
-                    <td>5:40 AM</td>
-                </tr>
-                <tr>
-                    <td>Eid Prayer</td>
-                    <td>6:45 AM</td>
-                </tr>
-                <tr>
-                    <td>Zuhr</td>
-                    <td>1:15 PM</td>
-                </tr>
-                <tr>
-                    <td>Asr</td>
-                    <td>4:20 PM</td>
-                </tr>
-                <tr>
-                    <td>Maghrib</td>
-                    <td>6:53 PM</td>
-                </tr>
-                <tr>
-                    <td>Isha</td>
-                    <td>8:45 PM</td>
-                </tr>
-            </table>
-        </div>
+      <div class="greeting">
+        <h1>Eid Mubarak</h1>
+        <div class="arabic-text">تَقَبَّلَ اللَّهُ مِنَّا وَمِنكُم</div>
+        <div class="typed-text"></div>
+        <p class="wishes">
+          May this Eid bring joy, peace, love, and barakah to you and your family.
+        </p>
+      </div>
+    </section>
 
-    </div>
-    <script src="script.js"></script>
+    <section class="interactive-section section">
+      <h2>Countdown to Eid</h2>
+      <p class="section-subtitle">Counting the moments until the blessed morning arrives.</p>
+      <div id="greetingPreview" class="greeting-preview"></div>
+    </section>
+
+    <section class="section prayer-times">
+      <h2>Eid Prayer Timings — Malegaon, Maharashtra</h2>
+      <p class="section-subtitle">Plan your blessed day beautifully.</p>
+
+      <div class="table-wrapper">
+        <table class="prayer-table">
+          <thead>
+            <tr>
+              <th>Prayer</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fajr</td>
+              <td>5:40 AM</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>Eid Prayer</td>
+              <td>6:45 AM</td>
+            </tr>
+            <tr>
+              <td>Zuhr</td>
+              <td>1:15 PM</td>
+            </tr>
+            <tr>
+              <td>Asr</td>
+              <td>4:20 PM</td>
+            </tr>
+            <tr>
+              <td>Maghrib</td>
+              <td>6:53 PM</td>
+            </tr>
+            <tr>
+              <td>Isha</td>
+              <td>8:45 PM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 
 </html>

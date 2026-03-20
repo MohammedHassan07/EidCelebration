@@ -1,206 +1,170 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const ambientSound = document.getElementById("ambientSound");
+  const soundToggle = document.getElementById("soundToggle");
+  const soundIcon = soundToggle?.querySelector(".sound-icon");
+  const countdownContainer = document.getElementById("greetingPreview");
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Audio Controls
-    const ambientSound = document.getElementById('ambientSound');
-    // const soundToggle = document.getElementById('soundToggle');
-    // let isPlaying = true;
-  
-    // Auto-play sound
+  let isPlaying = true;
+
+  if (ambientSound) {
+    ambientSound.volume = 0.35;
+
     ambientSound.play().catch(() => {
       isPlaying = false;
+      if (soundIcon) soundIcon.textContent = "🔈";
     });
-  
-    // soundToggle.addEventListener('click', () => {
-    //   if (isPlaying) {
-    //     ambientSound.pause();
-    //     soundToggle.querySelector('.sound-icon').textContent = '🔈';
-    //   } else {
-    //     ambientSound.play();
-    //     soundToggle.querySelector('.sound-icon').textContent = '🔊';
-    //   }
-    //   isPlaying = !isPlaying;
-    // });
-  
-    // Enhanced particle effects
-    function createParticle() {
-      const particle = document.createElement('div');
-      particle.className = 'sparkle';
-      particle.style.width = Math.random() * 6 + 2 + 'px';
-      particle.style.height = particle.style.width;
-      particle.style.left = Math.random() * window.innerWidth + 'px';
-      particle.style.top = Math.random() * window.innerHeight + 'px';
-      document.body.appendChild(particle);
-      
-      setTimeout(() => {
-        particle.remove();
-      }, 1500);
+  }
+
+  if (soundToggle) {
+    soundToggle.addEventListener("click", () => {
+      if (!ambientSound) return;
+
+      if (isPlaying) {
+        ambientSound.pause();
+        if (soundIcon) soundIcon.textContent = "🔈";
+      } else {
+        ambientSound.play();
+        if (soundIcon) soundIcon.textContent = "🔊";
+      }
+
+      isPlaying = !isPlaying;
+    });
+  }
+
+  function createParticle() {
+    const particle = document.createElement("div");
+    particle.className = "sparkle";
+
+    const size = Math.random() * 6 + 2;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.left = `${Math.random() * window.innerWidth}px`;
+    particle.style.top = `${Math.random() * window.innerHeight}px`;
+
+    document.body.appendChild(particle);
+
+    setTimeout(() => {
+      particle.remove();
+    }, 1600);
+  }
+
+  setInterval(() => {
+    if (Math.random() > 0.72) {
+      createParticle();
     }
-  
-    // Create particles automatically
-    setInterval(createParticle, 200);
-    // Initialize ScrollReveal
-    ScrollReveal().reveal('h1', {
+  }, 180);
+
+  if (typeof ScrollReveal !== "undefined") {
+    ScrollReveal().reveal(".hero-card", {
       delay: 200,
-      distance: '50px',
-      origin: 'bottom',
-      duration: 1000,
-      easing: 'ease-out',
-      reset: true
+      distance: "40px",
+      origin: "bottom",
+      duration: 1200,
+      easing: "ease-out",
+      reset: false
     });
-  
-    ScrollReveal().reveal('.arabic-text', {
+
+    ScrollReveal().reveal(".section", {
+      delay: 200,
+      distance: "40px",
+      origin: "bottom",
+      duration: 1000,
+      interval: 180,
+      easing: "ease-out",
+      reset: false
+    });
+
+    ScrollReveal().reveal(".arabic-text, .wishes, .credit, .badge", {
       delay: 300,
-      distance: '30px',
-      origin: 'bottom',
+      distance: "25px",
+      origin: "bottom",
       duration: 1000,
-      easing: 'ease-out',
-      reset: true
+      easing: "ease-out",
+      reset: false
     });
-  
-    ScrollReveal().reveal('.wishes', {
-      delay: 500,
-      distance: '30px',
-      origin: 'bottom',
-      duration: 1000,
-      easing: 'ease-out',
-      reset: true
-    });
-  
-    // Reveal content sections with cascade effect
-    ScrollReveal().reveal('.section', {
-      delay: 200,
-      distance: '50px',
-      origin: 'bottom',
-      duration: 1000,
-      interval: 200,
-      easing: 'ease-out',
-      reset: true
-    });
-  
-    ScrollReveal().reveal('.credit', {
-      delay: 600,
-      distance: '20px',
-      origin: 'bottom',
-      duration: 1000,
-      easing: 'ease-out',
-      reset: true
-    });
-  
-    // Initialize Typed.js
-    new Typed('.typed-text', {
+  }
+
+  if (typeof Typed !== "undefined") {
+    new Typed(".typed-text", {
       strings: [
-        'May Allah bless you with happiness',
-        'Wishing you peace and prosperity',
-        'Sending warm wishes on this blessed day'
+        "May Allah bless you with happiness",
+        "Wishing you peace and prosperity",
+        "Sending warm wishes on this blessed day",
+        "May your home be filled with joy and barakah"
       ],
-      typeSpeed: 50,
-      backSpeed: 30,
-      backDelay: 2000,
+      typeSpeed: 45,
+      backSpeed: 26,
+      backDelay: 1800,
       loop: true
     });
-  
-    // Countdown Timer
-    const countdownContainer = document.getElementById('greetingPreview');
-    const eidDate = new Date('2026-03-21T06:45:00'); // Set to Fajr time on Eid
-  
-    function updateCountdown() {
-      const now = new Date();
-      const difference = eidDate - now;
-      
-      if (difference <= 0) {
-        // Countdown has ended
-        if (countdownContainer) {
-          countdownContainer.style.display = 'block';
-          countdownContainer.innerHTML = `
-            <h3>Eid Mubarak!</h3>
-            <div class="celebration-message">
-              <p>The blessed day of Eid has arrived! May this special day bring peace, happiness, and blessings to all.</p>
-              <div class="countdown-grid">
-                <div class="countdown-item">
-                  <span class="countdown-value">🌙</span>
-                  <span class="countdown-label">Eid</span>
-                </div>
-                <div class="countdown-item">
-                  <span class="countdown-value">🕌</span>
-                  <span class="countdown-label">Mubarak</span>
-                </div>
-              </div>
-            </div>
-          `;
-        }
-        return;
-      }
-  
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-  
-      if (countdownContainer) {
-        countdownContainer.style.display = 'block';
-        countdownContainer.innerHTML = `
-          <h3>Countdown to Eid</h3>
+  }
+
+  const eidDate = new Date("2026-03-21T06:45:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const difference = eidDate - now;
+
+    if (!countdownContainer) return;
+
+    if (difference <= 0) {
+      countdownContainer.style.display = "block";
+      countdownContainer.innerHTML = `
+        <h3>Eid Mubarak! 🌙</h3>
+        <div class="celebration-message">
+          <p>The blessed day of Eid has arrived. May this special day bring peace, happiness, love, and countless blessings to all.</p>
           <div class="countdown-grid">
             <div class="countdown-item">
-              <span class="countdown-value">${days}</span>
-              <span class="countdown-label">Days</span>
+              <span class="countdown-value">🌙</span>
+              <span class="countdown-label">Eid</span>
             </div>
             <div class="countdown-item">
-              <span class="countdown-value">${hours}</span>
-              <span class="countdown-label">Hours</span>
+              <span class="countdown-value">🕌</span>
+              <span class="countdown-label">Prayer</span>
             </div>
             <div class="countdown-item">
-              <span class="countdown-value">${minutes}</span>
-              <span class="countdown-label">Minutes</span>
+              <span class="countdown-value">🤍</span>
+              <span class="countdown-label">Peace</span>
             </div>
             <div class="countdown-item">
-              <span class="countdown-value">${seconds}</span>
-              <span class="countdown-label">Seconds</span>
+              <span class="countdown-value">✨</span>
+              <span class="countdown-label">Blessings</span>
             </div>
           </div>
-        `;
-      }
+        </div>
+      `;
+      return;
     }
-  
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  
-    // Greeting Cards Download
-    document.querySelectorAll('.download-btn').forEach(button => {
-      button.addEventListener('click', function() {
-        const card = this.parentElement;
-        const cardNumber = card.dataset.card;
-        const cardImg = card.querySelector('img').src;
-        
-        // Create temporary link to download image
-        const link = document.createElement('a');
-        link.href = cardImg;
-        link.download = `eid-card-${cardNumber}.png`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      });
-    });
-  
-    // Automatic particle effect
-    function createRandomParticle() {
-      const sparkle = document.createElement('div');
-      sparkle.className = 'sparkle';
-      sparkle.style.width = Math.random() * 8 + 2 + 'px';
-      sparkle.style.height = sparkle.style.width;
-      sparkle.style.left = Math.random() * window.innerWidth + 'px';
-      sparkle.style.top = Math.random() * window.innerHeight + 'px';
-      document.body.appendChild(sparkle);
-      
-      setTimeout(() => {
-        sparkle.remove();
-      }, 1500);
-    }
-  
-    // Create particles at random intervals
-    setInterval(() => {
-      if (Math.random() > 0.7) {
-        createRandomParticle();
-      }
-    }, 100);
-  });
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    countdownContainer.style.display = "block";
+    countdownContainer.innerHTML = `
+      <h3>Countdown to Eid</h3>
+      <div class="countdown-grid">
+        <div class="countdown-item">
+          <span class="countdown-value">${days}</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value">${hours}</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value">${minutes}</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value">${seconds}</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    `;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+});
