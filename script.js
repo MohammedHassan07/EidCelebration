@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Countdown Timer
     const countdownContainer = document.getElementById('greetingPreview');
-    const eidDate = new Date('2025-03-31T07:00:00'); // Set to Fajr time on Eid
+    const eidDate = new Date('2026-03-21T06:45:00'); // Set to Fajr time on Eid
   
     function updateCountdown() {
       const now = new Date();
